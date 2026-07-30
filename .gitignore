@@ -1,0 +1,10 @@
+.DS_Store
+.claude/
+node_modules/
+*.log
+content.md
+content-sources.md
+research-brief.md
+variables.json
+master-*.png
+NICHE-BUILD-PLAYBOOK.md
