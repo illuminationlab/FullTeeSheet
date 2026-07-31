@@ -136,7 +136,19 @@
         <div class="split" style="align-items:flex-start;gap:48px;">
           <div class="split-content reveal">
             <h2 style="font-size:1.5rem;margin-bottom:24px;">Your numbers</h2>
-            <div id="revcalc-form" class="form-stack">
+            <form id="revcalc-form" data-webhook="https://illuminationlab.app.n8n.cloud/webhook/fc12357f-6e8b-4409-8182-8e44b967132d" class="form-stack">
+              <input type="hidden" name="source_site" value="fullteesheet">
+              <input type="hidden" name="form_location" value="golf-revenue-calculator">
+              <input type="hidden" name="page_url" value="" data-autofill="page_url">
+              <input type="hidden" name="referrer" value="" data-autofill="referrer">
+              <!-- Calculated values, populated live by the inline script below. These travel to the n8n webhook so the email can include the numbers the user saw on-screen. -->
+              <input type="hidden" name="estimated_annual_loss" id="hid-total" value="0">
+              <input type="hidden" name="estimated_missed_call_loss" id="hid-missed" value="0">
+              <input type="hidden" name="estimated_no_show_loss" id="hid-noshow" value="0">
+              <input type="hidden" name="estimated_annual_loss_formatted" id="hid-total-fmt" value="$0">
+              <input type="hidden" name="estimated_missed_call_loss_formatted" id="hid-missed-fmt" value="$0">
+              <input type="hidden" name="estimated_no_show_loss_formatted" id="hid-noshow-fmt" value="$0">
+
               <div class="form-group">
                 <label class="form-label" for="fld-appt">Average booking value ($)</label>
                 <input type="number" id="fld-appt" name="avg_appointment_value" class="form-input" value="500" min="0" required>
@@ -154,11 +166,26 @@
                 <input type="number" id="fld-noshow" name="no_show_rate_pct" class="form-input" value="20" min="0" max="100" required>
               </div>
 
-              <a href="../book-demo.html" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:8px;">
-                Book a Demo to Recover It
-                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
+              <hr style="border:none;border-top:1px solid rgba(255,255,255,0.08);margin:12px 0;">
+
+              <div class="form-group">
+                <label class="form-label" for="fld-name">Full Name</label>
+                <input type="text" id="fld-name" name="name" class="form-input" placeholder="Jane Smith" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-email">Work Email</label>
+                <input type="email" id="fld-email" name="email" class="form-input" placeholder="jane@pinevalleygolf.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-business">Business Name</label>
+                <input type="text" id="fld-business" name="business_name" class="form-input" placeholder="Pine Valley Golf Club" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-phone">Phone (optional)</label>
+                <input type="tel" id="fld-phone" name="phone" class="form-input" placeholder="(555) 123-4567">
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Email Me My Full Report</button>
+            </form>
           </div>
 
           <!-- Override .split-visual placeholder styling (aspect-ratio, bg, border, overflow:hidden) so stacked result cards are not cropped. -->
@@ -317,6 +344,13 @@
       var total = document.getElementById('revcalc-total');
       var missedEl = document.getElementById('revcalc-missed');
       var noshowEl = document.getElementById('revcalc-noshow');
+      // Hidden inputs that ship to the webhook alongside the form fields
+      var hTotal = document.getElementById('hid-total');
+      var hMissed = document.getElementById('hid-missed');
+      var hNoshow = document.getElementById('hid-noshow');
+      var hTotalF = document.getElementById('hid-total-fmt');
+      var hMissedF = document.getElementById('hid-missed-fmt');
+      var hNoshowF = document.getElementById('hid-noshow-fmt');
       var fmt = function(n){ return '$' + Math.round(n).toLocaleString('en-US'); };
       function calc(){
         var a = parseFloat(appt.value) || 0;
@@ -330,6 +364,13 @@
         missedEl.textContent = fmt(mLoss);
         noshowEl.textContent = fmt(nLoss);
         total.textContent = fmt(tLoss);
+        // Populate hidden inputs so the webhook POST carries the numbers
+        hMissed.value = mLoss;
+        hNoshow.value = nLoss;
+        hTotal.value = tLoss;
+        hMissedF.value = fmt(mLoss);
+        hNoshowF.value = fmt(nLoss);
+        hTotalF.value = fmt(tLoss);
       }
       [appt, calls, missed, noshow].forEach(function(el){ el.addEventListener('input', calc); });
       calc();

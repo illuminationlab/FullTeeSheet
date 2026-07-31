@@ -137,13 +137,30 @@
               <li>A 90-day marketing calendar to execute against</li>
             </ul>
 
-            <div class="cta-buttons" style="margin-top:24px;">
-              <a href="../book-demo.html" class="btn btn-primary btn-lg">
-                Book a Demo
-                <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a href="revenue-calculator.html" class="btn btn-outline">Try the Revenue Calculator</a>
-            </div>
+            <form data-webhook="https://illuminationlab.app.n8n.cloud/webhook/fc12357f-6e8b-4409-8182-8e44b967132d" class="form-stack" style="margin-top:24px;">
+              <input type="hidden" name="source_site" value="fullteesheet">
+              <input type="hidden" name="form_location" value="golf-playbook-download">
+              <input type="hidden" name="page_url" value="" data-autofill="page_url">
+              <input type="hidden" name="referrer" value="" data-autofill="referrer">
+
+              <div class="form-group">
+                <label class="form-label" for="fld-name">Full Name</label>
+                <input type="text" id="fld-name" name="name" class="form-input" placeholder="Jane Smith" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-email">Work Email</label>
+                <input type="email" id="fld-email" name="email" class="form-input" placeholder="jane@pinevalleygolf.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-business">Business Name</label>
+                <input type="text" id="fld-business" name="business_name" class="form-input" placeholder="Pine Valley Golf Club" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-phone">Phone (optional)</label>
+                <input type="tel" id="fld-phone" name="phone" class="form-input" placeholder="(555) 123-4567">
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Send Me the Playbook</button>
+            </form>
           </div>
 
           <div class="split-visual reveal reveal-delay-1" style="aspect-ratio:auto;background:transparent;border:none;overflow:visible;display:flex;align-items:center;justify-content:center;padding:20px;">

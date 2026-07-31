@@ -138,37 +138,80 @@
       </div>
     </section>
 
-    <!-- ===== BOOK A DEMO + REACH US ===== -->
+    <!-- ===== CONTACT FORM + PANEL ===== -->
     <section class="section" id="get-in-touch">
       <div class="container">
         <div class="split">
           <div class="split-content">
             <div class="section-header">
-              <div class="section-eyebrow">Book a Demo</div>
-              <h2>See it on your course.</h2>
-              <p>The fastest way to see it: a short, live walkthrough mapped to your course. We&rsquo;ll look at your gaps, show Voice AI answering a call, and give you a straight answer on what it&rsquo;d cost for your operation.</p>
+              <div class="section-eyebrow">Send Us a Message</div>
+              <h2>Tell us about your course.</h2>
+              <p>Fill this out and our team gets notified immediately. We reply fast &mdash; sometimes our AI does too.</p>
             </div>
-            <div class="cta-buttons" style="margin-top:8px;">
-              <a href="book-demo.html" class="btn btn-primary btn-lg">Book a Demo
+            <form data-webhook="https://illuminationlab.app.n8n.cloud/webhook/fc12357f-6e8b-4409-8182-8e44b967132d" class="form-stack">
+              <input type="hidden" name="source_site" value="fullteesheet">
+              <input type="hidden" name="form_location" value="golf-contact">
+              <input type="hidden" name="page_url" value="" data-autofill="page_url">
+              <input type="hidden" name="referrer" value="" data-autofill="referrer">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fld-name">Name</label>
+                  <input type="text" id="fld-name" name="name" class="form-input" placeholder="Jane Smith" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="fld-business">Company</label>
+                  <input type="text" id="fld-business" name="company" class="form-input" placeholder="Pine Valley Golf Club" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fld-email">Email</label>
+                  <input type="email" id="fld-email" name="email" class="form-input" placeholder="jane@pinevalleygolf.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="fld-phone">Phone</label>
+                  <input type="tel" id="fld-phone" name="phone" class="form-input" placeholder="(555) 123-4567" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-intent">What can we help with?</label>
+                <select id="fld-intent" name="intent" class="form-input" required>
+                  <option value="">Select one</option>
+                  <option value="signup-now">Book a Demo</option>
+                  <option value="switching">I'm switching from another platform</option>
+                  <option value="new-practice">I'm opening or taking over a course</option>
+                  <option value="pricing">I want to learn about pricing</option>
+                  <option value="signup">I'm ready to sign up &mdash; help me pick</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fld-message">Message</label>
+                <textarea id="fld-message" name="message" class="form-input" rows="4" placeholder="Tell us about your course, your current tee sheet, or where rounds are slipping..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Get Started
                 <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-            <p style="margin-top:24px;font-size:0.95rem;color:var(--color-text-secondary);">When you reach out, you may get a quick follow-up text from Conversation AI or a call from Voice AI &mdash; that&rsquo;s the system working exactly the way it will for your golfers. Consider it a live demo.</p>
+              </button>
+            </form>
           </div>
           <div class="split-visual" style="aspect-ratio:auto;background:transparent;border:none;overflow:visible;display:flex;flex-direction:column;gap:20px;">
             <div class="card card-gradient" style="padding:32px;">
-              <div class="section-eyebrow">Send Us a Note</div>
-              <h3 style="margin:10px 0 16px;">Prefer to write first?</h3>
-              <p style="margin:0 0 20px;">Email us and we&rsquo;ll get back to you fast. Tell us what you run and where rounds are slipping, and we&rsquo;ll point you to the pieces that fit.</p>
+              <div class="section-eyebrow">After You Reach Out</div>
+              <h3 style="margin:10px 0 16px;">What happens next</h3>
+              <ul class="checklist" style="margin:0;">
+                <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="#00B0B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Within minutes</strong> &mdash; your form hits our team instantly. During business hours you&rsquo;ll typically hear back the same day.</li>
+                <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="#00B0B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Live AI preview</strong> &mdash; you may get a follow-up text from Conversation AI or a call from Voice AI. Consider it a preview of exactly what your golfers will experience.</li>
+                <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="#00B0B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Within one business day</strong> &mdash; a human follows up to answer questions and map FullTeeSheet to your course.</li>
+              </ul>
+            </div>
+            <div class="card" style="padding:32px;">
+              <h4 style="margin:0 0 16px;">Reach us directly</h4>
               <div style="display:flex;flex-direction:column;gap:10px;font-size:0.95rem;">
                 <div><span style="color:var(--color-text-muted);min-width:60px;display:inline-block;">Email</span> <a href="mailto:info@fullteesheet.com" style="color:var(--color-text-primary);">info@fullteesheet.com</a></div>
                 <div><span style="color:var(--color-text-muted);min-width:60px;display:inline-block;">Hours</span> Mon&ndash;Fri, 8am&ndash;7pm CT</div>
                 <div><span style="color:var(--color-text-muted);min-width:60px;display:inline-block;">AI</span> Voice AI answers the phone 24/7</div>
               </div>
-            </div>
-            <div class="card" style="padding:32px;">
-              <h4 style="margin:0 0 12px;">No hard sell</h4>
-              <p style="margin:0;">We&rsquo;ll respond quickly, answer straight, and show you the fit. If FullTeeSheet isn&rsquo;t right for your course, we&rsquo;ll tell you.</p>
               <p style="margin:20px 0 0;"><a href="features.html#ai" class="card-link">See how we use AI <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="vertical-align:middle;"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
             </div>
           </div>
@@ -259,6 +302,75 @@
     </div>
   </footer>
 
+  <script>
+  // Intent-based redirect. After the contact form posts successfully,
+  // decide where to send the visitor based on the "What can we help with?"
+  // dropdown and prefill whatever fields the next page can use.
+  //
+  // Routing map:
+  //   signup-now    -> pricing.html#plans (email appended for Stripe prefill)
+  //   switching     -> pricing.html  (prefilled)
+  //   new-practice  -> pricing.html  (prefilled)
+  //   signup        -> pricing.html#plans (email appended for Stripe prefill)
+  //   pricing       -> pricing.html FAQ
+  //   other         -> default "Thank you" stays on page
+  (function(){
+    var form = document.querySelector('form[data-webhook]');
+    if (!form) return;
+
+    form.addEventListener('form:success', function(e){
+      var d = e.detail.data || {};
+      var intent = d.intent;
+      if (!intent) return; // no redirect, default thank you stays
+
+      var fullName = (d.name || '').trim();
+      var parts = fullName.split(/\s+/);
+      var firstName = parts.shift() || '';
+      var lastName = parts.join(' ');
+
+      var prefill = new URLSearchParams();
+      if (firstName) prefill.set('first_name', firstName);
+      if (lastName)  prefill.set('last_name', lastName);
+      if (d.email)   prefill.set('email', d.email);
+      if (d.phone)   prefill.set('phone', d.phone);
+
+      var redirectUrl = null;
+      var ctaLabel = 'Taking you to the next step';
+
+      if (intent === 'switching' || intent === 'new-practice') {
+        redirectUrl = 'pricing.html?' + prefill.toString();
+        ctaLabel = 'Taking you to pricing';
+      } else if (intent === 'signup' || intent === 'signup-now') {
+        var p = new URLSearchParams();
+        if (d.email) p.set('email', d.email);
+        redirectUrl = 'pricing.html' + (p.toString() ? '?' + p.toString() : '') + '#plans';
+        ctaLabel = 'Taking you to the plans';
+      } else if (intent === 'pricing') {
+        // No live chatbot yet -- route to pricing FAQ until the chatbot is wired up.
+        // Replace this block with the real chatbot URL when ready.
+        redirectUrl = 'pricing.html' + (d.email ? '?email=' + encodeURIComponent(d.email) : '');
+        ctaLabel = 'Taking you to pricing + FAQ';
+      } else {
+        // 'other' -- let default "Thank you" handle it
+        return;
+      }
+
+      // Override default "Thank you" -- show "redirecting" and go
+      e.preventDefault();
+
+      var msg = form.querySelector('.form-message');
+      if (!msg) {
+        msg = document.createElement('div');
+        msg.className = 'form-message';
+        form.appendChild(msg);
+      }
+      msg.className = 'form-message success';
+      msg.textContent = 'Thanks' + (firstName ? ', ' + firstName : '') + ' — ' + ctaLabel.toLowerCase() + '...';
+
+      setTimeout(function(){ window.location.href = redirectUrl; }, 1200);
+    });
+  })();
+  </script>
   <script src="js/main.js?v=1"></script>
   <!-- GHL Conversation AI chat widget -->
   <script>
